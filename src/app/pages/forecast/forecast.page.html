@@ -1,37 +1,25 @@
 <ion-header >
   <ion-toolbar>
-    <ion-title>forecast</ion-title>
+    <ion-title>Forecast</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card class="timeline-card">
+  <h2 style="text-align: center;" > {{slectedCity?.name}} </h2>
+  <ion-card class="timeline-card" *ngIf="weatherData">
     <ion-item lines="full" class="top-item" >
       <ion-icon slot="start" name="time"></ion-icon>
-      <ion-label>Today Timeline</ion-label>
+      <ion-label>10 days forecast</ion-label>
     </ion-item>
    <table>
-    <tr>
-      <td>1 am</td>
+    <tr *ngFor="let day of weatherData.days" >
+      <td>{{day.datetime}}</td>
       <td style="display: flex; justify-content: center; align-items: center;" >
-        <ion-img src="assets/weather-icons/rain.svg"></ion-img>
+        <ion-img [src]="'assets/weather-icons/'+day.icon+'.svg'"></ion-img>
       </td>
-      <td>30&deg; </td>
+      <td>{{fahrenheitToCelsius(day.tempmin)}}&deg;-{{fahrenheitToCelsius(day.tempmax)}} </td>
     </tr>
-    <tr>
-      <td>1 am</td>
-      <td style="display: flex; justify-content: center; align-items: center;" >
-        <ion-img src="assets/weather-icons/rain.svg"></ion-img>
-      </td>
-      <td>30&deg; </td>
-    </tr>
-    <tr>
-      <td>1 am</td>
-      <td style="display: flex; justify-content: center; align-items: center;" >
-        <ion-img src="assets/weather-icons/rain.svg"></ion-img>
-      </td>
-      <td>30&deg; </td>
-    </tr>
+   
    </table>
   </ion-card>
 </ion-content>

@@ -12,11 +12,11 @@
 
 <ion-content>
  <div class="empty-div" *ngIf="cities.length == 0" >
-  <p>  {{searchName.length > 2? 'No cities match your search' : 'Type atlest  three letters to search'}} </p>
+  <p>  {{searchName.length > 2? 'No cities match your search' : 'Type atleast  three letters to search'}} </p>
  </div>
 
 
- <ion-item *ngFor="let city of cities" >
+ <ion-item (click)="citySelected(city)" *ngFor="let city of cities" >
  <ion-list>
   <ion-label> {{city.name}}  </ion-label>
   <ion-label class="coord" > Lat : {{city.coord.lat}} Lon : {{city.coord.lon}} </ion-label>

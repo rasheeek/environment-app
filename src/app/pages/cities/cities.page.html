@@ -5,14 +5,14 @@
 </ion-header>
 
 <ion-content >
-<ion-card class="featured-card">
+<ion-card *ngIf="selectedCity" class="featured-card">
   <ion-item lines="none">
     <h5 slot="start">Featured</h5>
     <ion-icon (click)="editFeatured()" name="create" slot="end"></ion-icon>
   </ion-item>
   <div>
-    <h1 style="text-align: center;">Dehiwala - Mount</h1>
-    <p> Lat : 13.7474 &nbsp; Lon : 12:48348 </p>
+    <h1 style="text-align: center;">{{selectedCity.name}}</h1>
+    <p> Lat : {{selectedCity.coord.lat}} &nbsp; Lon : {{selectedCity.coord.lon}} </p>
   </div>
 </ion-card>
 </ion-content>

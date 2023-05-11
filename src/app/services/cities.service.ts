@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 export interface ICity{
   coord : ICoord,
@@ -15,6 +16,7 @@ export interface ICoord{
   providedIn: 'root'
 })
 export class CitiesService {
+  selectedCity : BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
   constructor() { }
 

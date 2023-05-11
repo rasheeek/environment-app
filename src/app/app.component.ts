@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CitiesService } from './services/cities.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   
-  constructor() {}
+  constructor(private citiesService : CitiesService) {
+   let city = localStorage.getItem('selectedCity');
+   if(city){
+    this.citiesService.selectedCity.next(JSON.parse(city))
+   }
+  }
  
 }

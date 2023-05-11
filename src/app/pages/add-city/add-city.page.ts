@@ -17,6 +17,12 @@ export class AddCityPage implements OnInit {
   ngOnInit() {
   }
 
+  citySelected(city : ICity){
+    this.citiesService.selectedCity.next(city);
+    localStorage.setItem('selectedCity', JSON.stringify(city));
+    this.close();
+  }
+
   close(){
     this.modalCtrl.dismiss();
   }

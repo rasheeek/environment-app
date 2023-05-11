@@ -5,42 +5,33 @@
 </ion-header>
 
 <ion-content>
-<div class="top-div">
-  <h2>City Name here</h2>
-  <h1>  31&deg; </h1>
-  <p>Drizzle</p>
-  <p><b>H : 31&deg;   &nbsp;  L : 26&deg;</b> </p>
+<div *ngIf="this.weatherData">
+  <div class="top-div">
+    <h2>{{this.slectedCity?.name}}</h2>
+    <h1>  {{fahrenheitToCelsius(this.weatherData.currentConditions.temp)}}&deg; </h1>
+    <p>{{this.weatherData.currentConditions.conditions}}</p>
+    <p><b>L : {{fahrenheitToCelsius(this.weatherData.days[0].tempmin)}}&deg;   &nbsp;  H : {{fahrenheitToCelsius(this.weatherData.days[0].tempmax)}}&deg;</b> </p>
+  </div>
+  
+  <ion-card class="timeline-card">
+    <ion-item lines="full" class="top-item" >
+      <ion-icon slot="start" name="time"></ion-icon>
+      <ion-label>Today Timeline</ion-label>
+    </ion-item>
+   <table>
+    <tr *ngFor="let hour of this.weatherData.days[0].hours; let i = index" >
+      <td>{{getTimeForIndex(i)}}</td>
+      <td style="display: flex; justify-content: center; align-items: center;" >
+        <ion-img [src]="'assets/weather-icons/'+hour.icon+'.svg'"></ion-img>
+      </td>
+      <td>{{fahrenheitToCelsius(hour.temp)}}&deg; </td>
+    </tr>
+   
+   </table>
+  </ion-card>
 </div>
 
-<ion-card class="timeline-card">
-  <ion-item lines="full" class="top-item" >
-    <ion-icon slot="start" name="time"></ion-icon>
-    <ion-label>Today Timeline</ion-label>
-  </ion-item>
- <table>
-  <tr>
-    <td>1 am</td>
-    <td style="display: flex; justify-content: center; align-items: center;" >
-      <ion-img src="assets/weather-icons/rain.svg"></ion-img>
-    </td>
-    <td>30&deg; </td>
-  </tr>
-  <tr>
-    <td>1 am</td>
-    <td style="display: flex; justify-content: center; align-items: center;" >
-      <ion-img src="assets/weather-icons/rain.svg"></ion-img>
-    </td>
-    <td>30&deg; </td>
-  </tr>
-  <tr>
-    <td>1 am</td>
-    <td style="display: flex; justify-content: center; align-items: center;" >
-      <ion-img src="assets/weather-icons/rain.svg"></ion-img>
-    </td>
-    <td>30&deg; </td>
-  </tr>
- </table>
-</ion-card>
+<div *ngIf="!weatherData" ></div>
 
 
 </ion-content>
