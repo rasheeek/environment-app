@@ -1,13 +1,37 @@
-<ion-header [translucent]="true">
+<ion-header >
   <ion-toolbar>
     <ion-title>forecast</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">forecast</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-card class="timeline-card">
+    <ion-item lines="full" class="top-item" >
+      <ion-icon slot="start" name="time"></ion-icon>
+      <ion-label>Today Timeline</ion-label>
+    </ion-item>
+   <table>
+    <tr>
+      <td>1 am</td>
+      <td style="display: flex; justify-content: center; align-items: center;" >
+        <ion-img src="assets/weather-icons/rain.svg"></ion-img>
+      </td>
+      <td>30&deg; </td>
+    </tr>
+    <tr>
+      <td>1 am</td>
+      <td style="display: flex; justify-content: center; align-items: center;" >
+        <ion-img src="assets/weather-icons/rain.svg"></ion-img>
+      </td>
+      <td>30&deg; </td>
+    </tr>
+    <tr>
+      <td>1 am</td>
+      <td style="display: flex; justify-content: center; align-items: center;" >
+        <ion-img src="assets/weather-icons/rain.svg"></ion-img>
+      </td>
+      <td>30&deg; </td>
+    </tr>
+   </table>
+  </ion-card>
 </ion-content>

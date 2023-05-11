@@ -1,0 +1,23 @@
+.featured-card{
+    padding: 10px 0 20px;
+    ion-item{
+        ion-icon{
+            width: 20px;
+            height: 20px;
+        }
+    }
+    div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        h1{
+            margin-bottom: 5px;
+            font-size: 33px;
+            color: black;
+        }
+        p{
+            margin-top: 0;
+        }
+    }
+}

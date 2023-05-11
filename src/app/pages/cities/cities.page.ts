@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { AddCityPage } from '../add-city/add-city.page';
 
 @Component({
   selector: 'app-cities',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CitiesPage implements OnInit {
 
-  constructor() { }
+  constructor(private modalCtrl : ModalController) { }
 
   ngOnInit() {
+  }
+
+
+  async editFeatured(){
+   const modal =  await this.modalCtrl.create({
+    component : AddCityPage
+   });
+   modal.present();
   }
 
 }

@@ -1,0 +1,16 @@
+.empty-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+}
+.coord{
+    margin-top: 5px;
+    font-size: 13px;
+}
+
+ion-item{
+    --padding-top : 8px;
+    --inner-padding-bottom : 10px;
+}

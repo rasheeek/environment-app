@@ -1,5 +1,16 @@
 import { Injectable } from '@angular/core';
 
+export interface ICity{
+  coord : ICoord,
+  name : string,
+  country : string
+}
+
+export interface ICoord{
+  lon : number,
+  lat : number
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -9,7 +20,7 @@ export class CitiesService {
 
 
 
-  cities = [
+  cities : ICity[] = [
     {
       "coord": {
         "lon": 48.570728,
