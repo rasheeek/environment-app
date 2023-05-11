@@ -38,13 +38,12 @@ export class HomePage implements OnInit {
     });
   }
 
+  // Loading the weather datas for the selected city
   loadDatas() {
-    console.log('Loading datas');
     this.loadingCtrl.create().then((loadingEl) => {
       loadingEl.present();
       this.apiService.getTodayDatas(this.slectedCity).subscribe(
         (res) => {
-          console.log('Today response ', res);
           this.weatherData = res;
           loadingEl.dismiss();
         },
@@ -55,6 +54,7 @@ export class HomePage implements OnInit {
     });
   }
 
+  // Modal to be shown when a city is not added already
   async showAddCityModal() {
     const alert = await this.alertController.create({
       header: 'Alert',
@@ -78,6 +78,7 @@ export class HomePage implements OnInit {
     await alert.present();
   }
 
+
   async addFeaturedCity() {
     const modal = await this.modalCtrl.create({
       component: AddCityPage,
@@ -85,11 +86,13 @@ export class HomePage implements OnInit {
     modal.present();
   }
 
+  // Function to convert the Fahrenheit temperature to celcius
   fahrenheitToCelsius(fahrenheit: number): string {
     const celsius = ((fahrenheit - 32) * 5) / 9;
     return celsius.toFixed(1);
   }
 
+  // Function that returns the time of the day
   getTimeForIndex(index: number) {
     let time = 0;
     let amOrPm = '';
@@ -108,7 +111,6 @@ export class HomePage implements OnInit {
         time = index - 12
       }
     }
-
     return time + ' ' + amOrPm;
   }
 }
